@@ -1,54 +1,75 @@
-package com.linecomparision; 
+package com.linecomparision;
 import java.text.DecimalFormat;
-
 public class LineComparison {
+	
+	//method to generate random points and find length of line
+	public static double lineLength() {
+		//Variable 
+		int x1,x2,y1,y2;
+	    	double length; 
+	    
+	    	//Random generation of points
+	    	x1=(int)(Math.floor(Math.random()*10));
+	    	x2=(int)(Math.floor(Math.random()*10));
+	    	y1=(int)(Math.floor(Math.random()*10));
+	    	y2=(int)(Math.floor(Math.random()*10));
+	    
+	    	//Length of a line
+	    	length=(Math.sqrt(((x2-x1)*(x2-x1)) + ((y2-y1)*(y2-y1))));	 	    
+        	return length;
+		}
+	
+	//equals method to check if lines are equal or not
+	public static String equalsMethod(double length_1, double length_2) {
+		Double obj1=new Double(length_1);
+        	Double obj2=new Double(length_2);
+        	boolean compare_value=obj1.equals(obj2);
+        
+        	if(compare_value) {
+        		return "Both lines are equal";
+        	}
+        	else {
+        		return "Lines are not equal";
+        	}
+		}
+	
+	//compareTo method to check whether line is equal, small or greater that the second line
+	public static String compareToMethod(double length_1, double length_2) {
+			Double obj1=new Double(length_1);
+        	Double obj2=new Double(length_2);
+        	int value=obj1.compareTo(obj2);
+        	if(value==0) {
+        		return "Both lines are equal";
+        	}
+        	else if(value>0) {
+        		return "Length of Line 1 greater than Line 2";
+        	}
+        	else {
+        		return "Length of Line 1 less than Line 2";
+        	}
+		}
 	
 	public static void main(String[] args) {
 		
 		//Printing welcome message
 		System.out.println("Welcome to Line Comparision Computation Program");
 		
-		//Variable declaration
-		int x1,x2,y1,y2; // points of line1 (x1,y1) and (x2,y2)
-		Double length_1,length_2; 
-		int x3,x4,y3,y4; // points of line2 (x3,y3) and (x4,y4)
-		
-		//rounding off to two decimal places
+		//for rounding off to 2 decimal places
 		DecimalFormat df = new DecimalFormat("##.##");
-			    
-		//Generating random values for line1 coordinates
-		x1=(int)(Math.floor(Math.random()*10));
-		x2=(int)(Math.floor(Math.random()*10));
-		y1=(int)(Math.floor(Math.random()*10));
-		y2=(int)(Math.floor(Math.random()*10));
-			    
-		//Length of line 1
-		length_1=(Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1)));	 	    
-		System.out.println("length of a line 1 "+df.format(length_1));
-		        
-		//Generating random values for line2 coordinates
-		x3=(int)(Math.floor(Math.random()*10));
-		x4=(int)(Math.floor(Math.random()*10));
-		y3=(int)(Math.floor(Math.random()*10));
-	        y4=(int)(Math.floor(Math.random()*10));
-							    
-	        //Length of line 2
-	        length_2=(Math.sqrt((x4-x3)*(x4-x3) + (y4-y3)*(y4-y3)));	 	    
-                System.out.println("length of a line 2 "+df.format(length_2));
-        	    
-              	//Checking equality of two lines using compareTo equals method
-                Double obj3=new Double(length_1);
-                Double obj4=new Double(length_2);
-                int value=obj3.compareTo(obj4);
-                
-		if(value==0) {
-                	System.out.println("Both lines are equal");
-                }
-                else if(value>0) {
-                	System.out.println("Length of Line 1 greater than Line 2");
-                }
-                else {
-                	System.out.println("Length of Line 1 less than Line 2");
-                }
+		
+		//Calling the line length computation method
+		double Length1=LineComparison.lineLength();
+		System.out.println("Length of Line 1"+df.format(Length1));
+		
+		double Length2=LineComparison.lineLength();
+		System.out.println("Length of Line 2"+df.format(Length2));
+		
+		//Calling equals method
+		String res_equals=LineComparison.equalsMethod(Length1, Length2);
+		System.out.println(res_equals);
+		
+		//Calling compareTo methdo
+		String res_compare=LineComparison.compareToMethod(Length1, Length2);
+		System.out.println(res_compare);
 	}
 }
