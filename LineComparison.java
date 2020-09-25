@@ -36,16 +36,19 @@ public class LineComparison {
 	        length_2=(Math.sqrt((x4-x3)*(x4-x3) + (y4-y3)*(y4-y3)));	 	    
                 System.out.println("length of a line 2 "+df.format(length_2));
         	    
-                //Checking equality of two lines using java equals method
-                Double obj1=new Double(length_1);
-        	Double obj2=new Double(length_2);
-        	boolean compare_value=obj1.equals(obj2);
-        
-        	if(compare_value) {
-        		System.out.println("Both lines are equal");
-        	}
-        	else {
-        		System.out.println("Lines are not equal");
-        	}
+              	//Checking equality of two lines using compareTo equals method
+                Double obj3=new Double(length_1);
+                Double obj4=new Double(length_2);
+                int value=obj3.compareTo(obj4);
+                
+		if(value==0) {
+                	System.out.println("Both lines are equal");
+                }
+                else if(value>0) {
+                	System.out.println("Length of Line 1 greater than Line 2");
+                }
+                else {
+                	System.out.println("Length of Line 1 less than Line 2");
+                }
 	}
 }
