@@ -7,6 +7,7 @@ public class LineComparison {
 		
 		//Printing welcome message
 		System.out.println("Welcome to Line Comparision Computation Program");
+		
 		//Variable declaration
 		int x1,x2,y1,y2; // points of line1 (x1,y1) and (x2,y2)
 		Double length_1,length_2; 
@@ -29,22 +30,22 @@ public class LineComparison {
 		x3=(int)(Math.floor(Math.random()*10));
 		x4=(int)(Math.floor(Math.random()*10));
 		y3=(int)(Math.floor(Math.random()*10));
-	    y4=(int)(Math.floor(Math.random()*10));
+	    	y4=(int)(Math.floor(Math.random()*10));
 							    
-	    //Length of line 2
-	    length_2=(Math.sqrt((x4-x3)*(x4-x3) + (y4-y3)*(y4-y3)));	 	    
-        System.out.println("length of a line 2 "+length_2);
+	    	//Length of line 2
+	    	length_2=(Math.sqrt((x4-x3)*(x4-x3) + (y4-y3)*(y4-y3)));	 	    
+        	System.out.println("length of a line 2 "+df.format(length_2));
         	    
-        //Checking equality of two lines using java equals method
-        Double obj1=new Double(length_1);
-        Double obj2=new Double(length_2);
-        boolean compare_value=obj1.equals(obj2);
+        	//Checking equality of two lines using java equals method
+        	Double obj1=new Double(length_1);
+        	Double obj2=new Double(length_2);
+        	boolean compare_value=obj1.equals(obj2);
         
-        if(compare_value) {
-        	System.out.println("Both lines are equal");
-        }
-        else {
-        	System.out.println("Lines are not equal");
-        }
+        	if(compare_value) {
+        		System.out.println("Both lines are equal");
+        	}
+        	else {
+        		System.out.println("Lines are not equal");
+        	}
 	}
 }
