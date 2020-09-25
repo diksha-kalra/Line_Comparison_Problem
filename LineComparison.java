@@ -35,10 +35,11 @@ public class LineComparison {
 	
 	//compareTo method to check whether line is equal, small or greater that the second line
 	public static String compareToMethod(double length_1, double length_2) {
-			Double obj1=new Double(length_1);
+		Double obj1=new Double(length_1);
         	Double obj2=new Double(length_2);
         	int value=obj1.compareTo(obj2);
-        	if(value==0) {
+        	
+		if(value==0) {
         		return "Both lines are equal";
         	}
         	else if(value>0) {
